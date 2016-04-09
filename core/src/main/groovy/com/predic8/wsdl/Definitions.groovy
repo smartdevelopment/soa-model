@@ -70,6 +70,17 @@ class Definitions extends WSDLElement{
 		this.targetNamespace = tns
 		registry.add(this)
 	}
+	
+	public Definitions(String tns, String name, Map ns) {
+		this.name = name
+		if (ns != null)
+		  this.namespaces += ns;
+		this.namespaces[''] = 'http://schemas.xmlsoap.org/wsdl/'
+		this.namespaces['wsdl'] = 'http://schemas.xmlsoap.org/wsdl/'
+		this.namespaces['tns'] = tns
+		this.targetNamespace = tns
+		registry.add(this)
+	}
 
 	/**
 	 * All the getter methods return the local elements and elements defined in other 
